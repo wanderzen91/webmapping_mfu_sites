@@ -80,6 +80,7 @@ ui <- navbarPage(title = "Sites CEN & MFU",
                  
                  theme = dark, tags$style(type = "text/css", "#map {height: calc(100vh - 72px) !important;}"),
                  useShinyjs(), 
+                 
           tabPanel("Information par site",
                    leafletOutput('map', width = "105vw") %>% withSpinner(color="#000000"),
                    
@@ -118,12 +119,12 @@ ui <- navbarPage(title = "Sites CEN & MFU",
                            fluidRow(br()),
                            fluidRow(pierOutput("types_mfu") %>% withSpinner(color="#000000"), align="center"),
                            fluidRow(br()),
-                           style = "opacity: 0.8; background-color: white;z-index: 10;"))),
+                           style = "opacity: 0.8; background-color: white;z-index: 10;"))
+                
+                ),
                            # shinyjs::hidden(wellPanel(id="dataviz", p("Indicateurs :"))), style = "opacity: 0.8; background-color: white;z-index: 10;")),
           
           tabPanel("Comparaison par départements",
-                   
-                   
                    fluidRow(
                      column(width = 6,
                             selectInput(

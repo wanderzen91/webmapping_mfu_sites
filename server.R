@@ -93,10 +93,12 @@ server <- function(input, output, session){
                   opacity = 1,
                   group = "Départements") %>%
       addPolygons(data= sites_mfu,
+                  layerId = sites_mfu$nom_site,
                   color = "grey",
                   fillColor = "transparent",
                   weight = 2,
-                  opacity = 1)  %>%
+                  opacity = 1,
+                  label = sites_mfu$nom_site)  %>%
       addLayersControl(
         overlayGroups = c("Départements"),
         baseGroups = c("Fond de carte standard (OSM)", "Imagerie satelitte (ESRI)"),
@@ -126,12 +128,11 @@ server <- function(input, output, session){
   })
   
   
-  # observeEvent(input$map_shape_click, {
-  #   shinyjs::toggle(id= "dataviz")
-  #     })
-  
-  
-
+#   observeEvent(input$map_shape_click, {
+#     p <- input$map_shape_click
+#     print(p)
+#   
+# })
   
   output$type_habitats <- renderpier({
     advanced.pie <- subset1() %>%
