@@ -19,7 +19,7 @@ library(forcats)
 library(highcharter)
 library(shinydashboard)
 
-setwd("C:/Users/Romain/Documents/mfu_sites_CEN/")
+setwd("C:/Users/Romain/Desktop/Github/mfu_sites_CEN/")
 
 sites_mfu <- geojson_sf("sites_cen.geojson")
 
