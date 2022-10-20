@@ -1,7 +1,7 @@
 library(shiny)
 library(leaflet)
 library(dplyr)
-library(cssloaders)
+library(shinycssloaders)
 library(geojsonsf)
 library(shinythemes)
 library(bslib)
