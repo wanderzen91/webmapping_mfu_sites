@@ -126,7 +126,7 @@ ui <- navbarPage(title = "Sites CEN & MFU",
           
           tabPanel("Comparaison par départements",
                    fluidRow(
-                     column(width = 6,
+                     column(width = 6, align = "center", 
                             selectInput(
                               inputId = "dept1", 
                               width = '300px',
@@ -134,7 +134,7 @@ ui <- navbarPage(title = "Sites CEN & MFU",
                               choices = as.character(sort(unique(parts_habitats_depts$nom_dept))),
                               selected = "Charente")
                      ),
-                     column(width = 6,
+                     column(width = 6, align = "center", 
                             selectInput(
                               inputId = "dept2", 
                               width = '300px',
@@ -142,19 +142,25 @@ ui <- navbarPage(title = "Sites CEN & MFU",
                               choices = as.character(sort(unique(parts_habitats_depts$nom_dept))),
                               selected = "Charente-Maritime")
                      )),  
+                  
                    
-                   br(), 
-                   
-                   h5("Nombre et surface totale de sites gérés :"),
                    br(), 
                    fluidRow(align = "center",
-                            column(width = 6, align = "center",
-                                   shinydashboard::valueBoxOutput(outputId = "box1", width = 6) %>% withSpinner(color="#000000"),
-                                   shinydashboard::valueBoxOutput(outputId = "box2", width = 6) %>% withSpinner(color="#000000")),
-                            column(width = 6, align = "center",
-                                   shinydashboard::valueBoxOutput(outputId = "box3", width = 6) %>% withSpinner(color="#000000"),
-                                   shinydashboard::valueBoxOutput(outputId = "box4", width = 6) %>% withSpinner(color="#000000"))),
-
+                            column(width = 1),
+                            column(width = 4, align = "center",
+                               box(title = "Nombre et surface totale de sites gérés :",
+                                   status = "primary", solidHeader = TRUE, collapsible = TRUE, width = 12,
+                                   br(),
+                                   shinydashboard::valueBoxOutput(outputId = "box1", width = 8) %>% withSpinner(color="#000000"),
+                                   shinydashboard::valueBoxOutput(outputId = "box2", width = 8) %>% withSpinner(color="#000000"))),
+                            column(width = 2),
+                            column(width = 4, align = "center",
+                                   box(title = "Nombre et surface totale de sites gérés :",
+                                       status = "primary", solidHeader = TRUE, collapsible = TRUE, width = 12,
+                                       br(),
+                                   shinydashboard::valueBoxOutput(outputId = "box3", width = 8) %>% withSpinner(color="#000000"),
+                                   shinydashboard::valueBoxOutput(outputId = "box4", width = 8) %>% withSpinner(color="#000000")))),
+                   column(width = 1),
                    br(), 
                    
                    h5("Types d'habitats et types de MFU :"),
